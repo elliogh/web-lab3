@@ -12,7 +12,7 @@
 </h:head>
 <h:body>
     <div class="p-grid">
-        <div class="p-col">
+        <div class="grid">
             <p:panel header="Canvas">
                 <div id="graph-picture">
                     <canvas id="background-canvas" style="z-index: 0" width="500" height="500">
@@ -54,8 +54,8 @@
                         <p:autoUpdate/>
                     </p:messages>
                     <div class="manual-input-block" id="x-checkboxes-block">
-                        <h:outputText value="X:"/>
-                        <div><p:spinner min="-4" max="4" stepFactor="0.5" value="#{hits.x}" style="margin-right: 20px"  /></div>
+                        <h:outputText value="X:" style="margin-right: 20px"/>
+                        <div style="width: 100%"><p:spinner min="-4" max="4" stepFactor="0.5" value="#{hits.x}" style="flex-grow: 200"/></div>
                     </div>
                     <div class="manual-input-block" id="y-input-text-block">
                         <h:outputLabel id="y-input-text-label" for="y-input-text" value="Y:" style="margin-right: 20px"/>
@@ -71,15 +71,15 @@
                         <h:outputText value="R:" style="margin-right: 20px"/>
                         <div style="display: flex; justify-content: space-between; flex-grow: 200">
                             <p:commandButton value=" 1 " update="results-table"
-                                             action="#{hits.submitManualInputHit(1)}" oncomplete="redrawPoints()"/>
+                                             action="#{hits.submitManualInputHit(1)}" oncomplete="redrawPoints(); minecraftSoundClick()"/>
                             <p:commandButton value="2" update="results-table"
-                                             action="#{hits.submitManualInputHit(2)}" oncomplete="redrawPoints()"/>
+                                             action="#{hits.submitManualInputHit(2)}" oncomplete="redrawPoints(); minecraftSoundClick()"/>
                             <p:commandButton value="3" update="results-table"
-                                             action="#{hits.submitManualInputHit(3)}" oncomplete="redrawPoints()"/>
+                                             action="#{hits.submitManualInputHit(3)}" oncomplete="redrawPoints(); minecraftSoundClick()"/>
                             <p:commandButton value="4" update="results-table"
-                                             action="#{hits.submitManualInputHit(4)}" oncomplete="redrawPoints()"/>
+                                             action="#{hits.submitManualInputHit(4)}" oncomplete="redrawPoints(); minecraftSoundClick()"/>
                             <p:commandButton value="5" update="results-table"
-                                             action="#{hits.submitManualInputHit(5)}" oncomplete="redrawPoints()"/>
+                                             action="#{hits.submitManualInputHit(5)}" oncomplete="redrawPoints(); minecraftSoundClick()"/>
                         </div>
                     </div>
                 </h:form>
@@ -117,4 +117,5 @@
 
 </h:body>
 <h:outputScript name="js/canvas.js"/>
+<h:outputScript name="js/audio.js"/>
 </html>
